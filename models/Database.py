@@ -7,5 +7,6 @@ db = pymysql.connect(
     password='15441109',
     db='apitool_test'
 )
-
+ 
 cursor = db.cursor()
+db.ping(reconnect=True)

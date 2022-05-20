@@ -9,7 +9,7 @@ class UserManager:
             cursor.execute("SELECT * FROM users WHERE userid = %s", (userid,))
             row = cursor.fetchone()
             if row != None:
-                user = EUser(row[0], row[1], row[2], row[3], row[4], row[5], row[7], row[8]).__dict__
+                user = EUser(row[0], row[1], row[2], row[3], row[4], row[5], row[7], row[8], row[9]).__dict__
                 return user
         except Exception as e:
             raise (Exception(e))
