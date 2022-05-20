@@ -2,7 +2,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 
 class EUser():
-    def __init__(self, userid, username="", email="", password="", name="", phone="", city="", permissions="") -> None:
+    def __init__(self, userid, username="", email="", password="", name="", phone="", city="", permissions="", profile_img="") -> None:
         self.userid = userid
         self.username = username
         self.email = email
@@ -11,6 +11,7 @@ class EUser():
         self.phone = phone
         self.city = city
         self.permissions = permissions
+        self.profile_img = profile_img
     
     @classmethod
     def check_password(self, hashed_password, password):

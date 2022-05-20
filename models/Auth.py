@@ -12,6 +12,7 @@ class Auth:
                 user = EUser(row[0], row[1], row[2], EUser.check_password(row[3], user.password), row[4], row[5])
                 return user
 
+
         except Exception as e:
             raise (Exception(e))
     

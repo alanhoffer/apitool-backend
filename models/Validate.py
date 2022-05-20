@@ -36,6 +36,8 @@ def cityRegex(city):
     return False
 
 def register(userinfo):
+    
+    print(phoneRegex(userinfo['phone']) )
     if emailRegex(userinfo['email']) and passwordRegex(userinfo['password']) and usernameRegex(userinfo['username']) and fullnameRegex(userinfo['name']) and phoneRegex(userinfo['phone']) and cityRegex(userinfo['city']):
         user = EUser(0, userinfo['username'], userinfo['email'], userinfo['password'], userinfo['name'], userinfo['phone'], userinfo['city'])
         return user
