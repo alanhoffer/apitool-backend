@@ -1,16 +1,22 @@
 from models.entities.EUser import EUser
-from models.Database import db, cursor
+from models.Database import mysqlConnection
 
 class Auth:
     
     @classmethod
     def login(self, user):
         try:
+            conexion = mysqlConnection()
+            cursor = conexion.cursor()
+            
             cursor.execute("SELECT * FROM users WHERE username = %s", (user.username,))
             row = cursor.fetchone()
             if row != None:
                 user = EUser(row[0], row[1], row[2], EUser.check_password(row[3], user.password), row[4], row[5])
+                conexion.close()
                 return user
+            conexion.close()
+
 
         except Exception as e:
             raise (Exception(e))
@@ -18,6 +24,9 @@ class Auth:
     @classmethod
     def register(self,user):
         try:
+            conexion = mysqlConnection()
+            cursor = conexion.cursor()
+            
             cursor.execute("SELECT * FROM users WHERE username = %s", (user.username,))
             row = cursor.fetchone()
             if row == None:
@@ -27,8 +36,10 @@ class Auth:
                 cursor.execute("SELECT * FROM users WHERE email = %s", (user.email,))
                 row = cursor.fetchone()
                 user = EUser(row[0], row[1], row[2], EUser.generate_password_hash(user.password), row[4], row[5])
+                conexion.close()
                 return user
             else:
+                conexion.close()
                 return False
         except Exception as e:
             raise (Exception(e))

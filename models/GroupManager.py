@@ -1,7 +1,7 @@
 from calendar import c
 from flask import jsonify
 from models.entities.EUser import EUser
-from models.Database import db, cursor
+from models.Database import mysqlConnection
 
 class GroupManager:
     
