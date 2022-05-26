@@ -1,4 +1,4 @@
-from models.Database import db, cursor
+from models.Database import mysqlConnection
 from models.entities.EFriend import EFriend
 
 
