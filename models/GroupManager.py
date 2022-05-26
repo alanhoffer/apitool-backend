@@ -12,7 +12,7 @@ class GroupManager:
         if row == None:
             cursor.execute("INSERT INTO workgroup (groupid, name) VALUES (%s, %s)", (group.id, group.name))
             db.commit()
-            #Group dont exist with that name and be created
+            #Group dont exist with that namessadasdad and be created
             return True
         else:
             #Group exist with that name
