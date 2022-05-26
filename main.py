@@ -7,7 +7,7 @@ from flask_jwt_extended import create_access_token,get_jwt,get_jwt_identity, jwt
 
 
 
-# MODELS
+# MODELS2
 from models.Auth import Auth
 from models.GroupManager import GroupManager
 from models.NoticeManager import NoticeManager
